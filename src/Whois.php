@@ -67,9 +67,9 @@ class Whois extends WhoisClient
         $query = trim($query);
         $idn = new IdnaConvert();
         if ($is_utf) {
-            $query = $idn->encode($query);
+            $query = $idn->validate($query) ? $query : $idn->encode($query);
         } else {
-            $query = $idn->encode(utf8_encode($query));
+            $query = $idn->validate(utf8_encode($query)) ? utf8_encode($query) : $idn->encode(utf8_encode($query));
         }
         // If domain to query was not set
         if (!isset($query) || $query == '') {
