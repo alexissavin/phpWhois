@@ -2,7 +2,7 @@
 
 use phpWhois\WhoisClient;
 
-class WhoisClientTest extends \PHPUnit_Framework_TestCase
+class WhoisClientTest extends \PHPUnit\Framework\TestCase
 {
     public function testVersion()
     {

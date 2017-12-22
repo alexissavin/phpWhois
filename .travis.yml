@@ -1,18 +1,15 @@
 language: php
 
 php:
-  - 5.3
-  - 5.4
-  - 5.5
-  - 5.6
-  - 7
-  - hhvm
-  - hhvm-nightly
+  - 7.0
+  - 7.1
+  - 7.2
+  - nightly
 
 matrix:
   fast_finish: true
   allow_failures:
-    - php: hhvm-nightly
+    - php: nightly
 
 # faster builds on new travis containers
 sudo: false
@@ -22,6 +19,7 @@ install:
   - composer install --prefer-dist
 
 script:
+  - php testsuite.php --ci
   - vendor/bin/phpunit --verbose --coverage-clover=coverage.clover
 
 after_script:

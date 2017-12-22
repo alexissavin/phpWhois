@@ -45,7 +45,7 @@ class ch_handler {
             'contractual language:' => 'language'
         );
 
-        $r = array();
+        $r = [];
         $r['regrinfo'] = get_blocks($data_str['rawdata'], $items);
 
         if (!empty($r['regrinfo']['domain']['name'])) {
@@ -61,7 +61,7 @@ class ch_handler {
 
             $r['regrinfo']['registered'] = 'yes';
         } else {
-            $r = '';
+            $r = [];
             $r['regrinfo']['registered'] = 'no';
         }
 
